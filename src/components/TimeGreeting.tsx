@@ -1,4 +1,4 @@
-import { MoonStars, SolarSun } from "./Icons";
+import { MoonStars, SolarCloud, SolarSun } from "./Icons";
 
 type Props = {
   hour: number;
@@ -6,7 +6,7 @@ type Props = {
 
 export default function TimeGreeting({ hour }: Props) {
   const getGreeting = () => {
-    if (hour >= 6 && hour < 12) return { greet: 'GOOD MORNING', icon: <SolarSun /> };
+    if (hour >= 6 && hour < 12) return { greet: 'GOOD MORNING', icon: <SolarCloud /> };
     if (hour >= 12 && hour < 18) return { greet: 'GOOD AFTERNOON', icon: <SolarSun /> };
     return { greet: 'GOOD EVENING', icon: <MoonStars /> };
   };
@@ -15,14 +15,15 @@ export default function TimeGreeting({ hour }: Props) {
 
   return (
     <header
+      className="greeting"
       aria-label="Current time greeting"
       role="banner"
     >
       <h2>
         <span aria-hidden="true">{icon}</span>
-        <span>{greet}</span>
+        <span>&nbsp;{greet}</span>
       </h2>
-      <span>It's currently</span>
+      <span>&nbsp;It'S CURRENTLY</span>
     </header>
   );
 }
