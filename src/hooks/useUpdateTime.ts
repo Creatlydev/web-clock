@@ -1,24 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-export function useUpdateTime(initialTime: string) {
+export function useUpdateTime() {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
 
   useEffect(() => {
-    if (initialTime !== '') {
-      const initialDate = new Date(initialTime.replace(" ", "T"));
-      setCurrentTime(initialDate);
-    }
-  }, [initialTime]);
-
-  useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentTime(prev => prev ? new Date(prev.getTime() + 1000) : prev)
+      setCurrentTime(new Date());
     }, 1000);
 
-    return () => clearInterval(intervalId)
-  }, [])
+    return () => clearInterval(intervalId);
+  }, []);
 
   return {
     currentTime
-  }
+  };
 }

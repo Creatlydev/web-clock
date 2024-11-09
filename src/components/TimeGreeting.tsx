@@ -23,7 +23,7 @@ export default function TimeGreeting({ hour }: Props) {
         <span aria-hidden="true">{icon}</span>
         <span>&nbsp;{greet}</span>
       </h2>
-      <span>&nbsp;It'S CURRENTLY</span>
+      <span>&nbsp;IT'S CURRENTLY</span>
     </header>
   );
 }

@@ -9,6 +9,8 @@ const loaded = (function () {
 })();
 
 class TypingEffectElement extends HTMLElement {
+  #isTyping = false
+
   static get observedAttributes() {
     return ['data-lines', 'data-character-delay', 'data-line-delay'];
   }
@@ -24,7 +26,10 @@ class TypingEffectElement extends HTMLElement {
 
 
   async connectedCallback() {
-    await loaded;
+    await loaded
+    if (this.#isTyping) return
+    this.#isTyping = true
+
     if (this.content) await typeLines(this.lines, this.content, this.characterDelay, this.lineDelay);
     if (this.cursor) this.cursor.hidden = true;
     this.lines.length && this.dispatchEvent(
@@ -32,7 +37,9 @@ class TypingEffectElement extends HTMLElement {
         bubbles: true,
         cancelable: true
       })
-    );
+    )
+
+    this.#isTyping = false
   }
 
   get content() {
