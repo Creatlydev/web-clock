@@ -150,6 +150,22 @@ button:focus-visible {
   width: fit-content;
   background-color: transparent;
   backdrop-filter: blur(4px);
+  transform: scale(0);
+  animation: btn-in 1s ease-in forwards;
+}
+
+@keyframes btn-in {
+  50% {
+    transform: scale(1) rotate(-180deg);
+  }
+
+  75% {
+    transform: scale(1.2) rotate(-90deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
 }
 
 @media (prefers-color-scheme: light) {
