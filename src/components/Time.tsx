@@ -7,14 +7,14 @@ export default function Time() {
 
   return (
     <>
-      <TimeGreeting hour={currentTime?.getHours() as number} />
+      <TimeGreeting hour={currentTime.getHours()} />
 
       <h1 className="timezone__time">
         {
-          formatter.format(currentTime as Date)
+          formatter.format(currentTime)
         }
         <div className="seconds">
-          <span>{currentTime?.getSeconds().toString().padStart(2, '0')}</span>
+          <span>{currentTime.getSeconds().toString().padStart(2, '0')}</span>
         </div>
       </h1>
     </>

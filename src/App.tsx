@@ -3,10 +3,12 @@ import cityImage from "./assets/city-night.jpg"
 import TimeZone from "./components/TimeZone"
 import React from "react"
 
-function App() { 
+function App() {
 
   return (
-    <main className="container main-page" style={{ '--bg-image': `url(${cityImage})` } as React.CSSProperties}>
+    <main
+      className="container main-page" style={{ '--bg-image': `url(${cityImage})` } as React.CSSProperties}
+    >
       <Quote />
 
       <TimeZone />

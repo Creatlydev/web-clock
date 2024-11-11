@@ -6,16 +6,14 @@ export default function TimeZone() {
 
   return (
     <section className="timezone">
+      <Time />
       {
         loading
-          ? <p>Loading...</p>
+          ? <p>loading...</p>
           : (
-            <>
-              <Time />
-              <p>
-                IN {infoIP && infoIP.time_zone.name.replace('/', ', ').toUpperCase() + " " + infoIP.country_emoji}
-              </p>
-            </>
+            <p>
+              IN {infoIP && infoIP.time_zone.name.replace('/', ', ').toUpperCase() + " " + infoIP.country_emoji}
+            </p>
           )
       }
     </section>

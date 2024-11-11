@@ -120,9 +120,3 @@ declare namespace JSX {
     };
   }
 }
-
-declare namespace JSX {
-  interface IntrinsicElements {
-    'my-web-component': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-  }
-}

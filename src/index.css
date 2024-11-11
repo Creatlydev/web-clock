@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,17 +29,13 @@
 }
 
 a {
-  font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
   min-height: 100vh;
-  font-family: __Rubik__;
+  font-family: __Rubik__, sans-serif;
 }
 
 .container {
@@ -47,12 +43,10 @@ body {
 }
 
 .main-page {
-  --gradient: linear-gradient(
-    to bottom,
-    #242424 25%,
-    transparent,
-    #242424 75% 100%
-  );
+  --gradient: linear-gradient(to bottom,
+      #242424 25%,
+      transparent,
+      #242424 75% 100%);
   background: var(--gradient), var(--bg-image);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
@@ -65,13 +59,36 @@ body {
   justify-content: space-between;
 }
 
+.quote-container {
+  max-width: 600px;
+  width: min(100%, max-content);
+
+}
+
 .quote {
   font-weight: 500;
-  max-width: 450px;
 
-  > footer {
+  >footer {
     font-weight: 800;
     margin-top: .25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .quote__cite {
+    a {
+      display: block;
+      width: 200px;
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .quote__cite:hover {
+    color: #535bf2;
   }
 }
 
@@ -96,11 +113,13 @@ body {
 .greeting {
   display: flex;
   align-items: center;
+  text-wrap: nowrap;
+  overflow: hidden;
 
   h2 {
     display: flex;
     align-items: center;
-    
+
     span {
       height: 24px;
     }
@@ -113,22 +132,24 @@ h1 {
 }
 
 button {
+  display: inline-block;
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  line-height: 1;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.regenerate-btn {
+  padding: .25rem;
+  width: fit-content;
+  background-color: transparent;
+  backdrop-filter: blur(4px);
 }
 
 @media (prefers-color-scheme: light) {
@@ -136,9 +157,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
