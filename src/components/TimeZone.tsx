@@ -1,8 +1,8 @@
-import { useWeather } from "../hooks/useWeather"
+import { useInfoIP } from "../hooks/useInfoIP"
 import Time from "./Time"
 
 export default function TimeZone() {
-  const { loading, infoIP } = useWeather()
+  const { loading, infoIP } = useInfoIP()
 
   return (
     <section className="timezone">
