@@ -42,11 +42,17 @@ body {
   padding: 1.5rem;
 }
 
+@property --gColor {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #242424;
+}
+
 .main-page {
   --gradient: linear-gradient(to bottom,
-      #242424 25%,
+      var(--gColor) 25%,
       transparent,
-      #242424 75% 100%);
+      var(--gColor) 75% 100%);
   background: var(--gradient), var(--bg-image);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
@@ -57,12 +63,25 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  animation: change-color 50s linear infinite;
 }
 
 .quote-container {
   max-width: 600px;
-  width: min(100%, max-content);
+}
 
+@keyframes change-color {
+  0%, 100% {
+    --gColor: #242424;
+  }
+
+  33% {
+    --gColor: #104f9d;
+  }
+
+  66% {
+    --gColor: #9d105f;
+  }
 }
 
 .quote {

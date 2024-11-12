@@ -2,7 +2,7 @@ import { useWeather } from "../hooks/useWeather"
 import Time from "./Time"
 
 export default function TimeZone() {
-  const { loading, infoIP, weather } = useWeather()
+  const { loading, infoIP } = useWeather()
 
   return (
     <section className="timezone">
@@ -12,7 +12,12 @@ export default function TimeZone() {
           ? <p>loading...</p>
           : (
             <p>
-              IN {infoIP && infoIP.time_zone.name.replace('/', ', ').toUpperCase() + " " + infoIP.country_emoji}
+              <img
+                width={24}
+                style={{marginRight: '12px'}}
+                src={infoIP?.country_flag} alt=""
+              />
+              {infoIP && infoIP.time_zone.name.replace('/', ', ').toUpperCase() + " " + infoIP.country_emoji}
             </p>
           )
       }
